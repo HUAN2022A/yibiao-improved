@@ -3,7 +3,7 @@ const path = require('node:path');
 const Database = require('better-sqlite3');
 const { getWorkspaceDatabasePath } = require('../utils/paths.cjs');
 
-const schemaVersion = 35;
+const schemaVersion = 36;
 
 // 保存当前工作区的一份开票信息。
 function createOfficialInvoiceSchema(db) {
@@ -1226,6 +1226,23 @@ function createFeasibilityReportSchema(db) {
   `);
 }
 
+function createAiEvaluationSchema(db) {
+  db.exec(`
+    CREATE TABLE IF NOT EXISTS ai_evaluation_meta (
+      id INTEGER PRIMARY KEY CHECK (id = 1),
+      step TEXT NOT NULL DEFAULT 'tender',
+      project_name TEXT NOT NULL DEFAULT '',
+      tender_documents_json TEXT,
+      bid_documents_json TEXT,
+      criteria_json TEXT,
+      responses_json TEXT,
+      result_json TEXT,
+      created_at TEXT NOT NULL,
+      updated_at TEXT NOT NULL
+    );
+  `);
+}
+
 const schemaHealthTableGroups = [
   {
     version: 1,
@@ -1326,6 +1343,11 @@ const schemaHealthTableGroups = [
       'credential_library_images',
     ],
     repair: createCredentialLibrarySchema,
+  },
+  {
+    version: 36,
+    tables: ['ai_evaluation_meta'],
+    repair: createAiEvaluationSchema,
   },
 ];
 
@@ -1767,6 +1789,11 @@ const migrations = [
     version: 35,
     description: '技术方案新增格式自检及修复开关',
     up: addTechnicalPlanLayoutCheckOption,
+  },
+  {
+    version: 36,
+    description: '新增 AI 评标工作区表结构',
+    up: createAiEvaluationSchema,
   },
 ];
 

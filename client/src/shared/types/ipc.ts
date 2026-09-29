@@ -6,6 +6,7 @@ import type { KnowledgeAnalysisSnapshot, KnowledgeBaseEvent, KnowledgeBaseIndex,
 import type { RejectionCheckWorkspacePatch, RejectionCheckWorkspaceState, RejectionDocumentRole } from '../../features/rejection-check/types';
 import type { BidAnalysisMode, BidAnalysisTaskState, BidSectionMode, ContentGenerationOptions, ContentGenerationPlanState, ContentGenerationProgressDetail, ContentGenerationRuntimeState, ContentGenerationSectionState, DetectedBidSection, GlobalFactGroupState, SaveOutlineRequest, SaveOutlineSelectionRequest, TechnicalPlanGenerationConfig, TechnicalPlanState, TechnicalPlanStep } from '../../features/technical-plan/types';
 import type { FeasibilityProjectInfo, FeasibilityReportState, FeasibilityReportStep, FeasibilitySaveOutlineRequest, FeasibilitySourceFile } from '../../features/feasibility-report/types';
+import type { AiEvaluationDocument, AiEvaluationWorkspaceState } from '../../features/ai-evaluation/types';
 import type { CredentialCertificate, CredentialEmployee, CredentialImageFieldKey, CredentialLibraryImportResult, CredentialLibraryMutationResult, CredentialLibraryProfile, CredentialLibrarySnapshot, CredentialOtherMaterial, CredentialProject, CredentialRecordSavePayload } from '../../features/credential-library/types';
 import type { ExportFormatConfig, ExportTemplateRecord } from './exportFormat';
 import type { TechnicalPlanOutlineData as OutlineData } from './outline';
@@ -697,8 +698,31 @@ export interface YibiaoBridge {
   };
   file: {
     selectDuplicateCheckFiles: (options?: { multiple?: boolean; filePaths?: string[] }) => Promise<FileSelectionResult>;
+    importDocument: (options?: { documentLabel?: string; multiple?: boolean; filePaths?: string[]; assetScopePrefix?: string; preserveImages?: boolean }) => Promise<{
+      success: boolean;
+      message?: string;
+      file_content?: string;
+      file_name?: string;
+      parser_provider?: string;
+      parser_label?: string;
+      documents?: Array<{
+        file_content: string;
+        file_name: string;
+        source_path?: string;
+        parser_provider?: string;
+        parser_label?: string;
+        fallback_to_local?: boolean;
+      }>;
+      errors?: string[];
+    }>;
     /** 把拖拽进来的 File 对象换成本地绝对路径，供各上传区拖拽导入使用 */
     getPathForFile: (file: File) => string;
+  };
+  aiEvaluation: {
+    loadState: () => Promise<AiEvaluationWorkspaceState>;
+    saveState: (partial: Partial<Omit<AiEvaluationWorkspaceState, 'tenderDocuments' | 'bidDocuments'>>) => Promise<{ success: boolean }>;
+    saveDocuments: (role: 'tender' | 'bid', documents: AiEvaluationDocument[]) => Promise<{ success: boolean }>;
+    clear: () => Promise<AiEvaluationWorkspaceState>;
   };
   knowledgeBase: {
     list: () => Promise<KnowledgeBaseIndex>;

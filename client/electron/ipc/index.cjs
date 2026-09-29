@@ -1,6 +1,7 @@
 const { clipboard, dialog, ipcMain, powerMonitor, shell } = require('electron');
 const { registerAgentIpc } = require('./agentIpc.cjs');
 const { registerAiIpc } = require('./aiIpc.cjs');
+const { registerAiEvaluationIpc } = require('./aiEvaluationIpc.cjs');
 const { registerAutoConfirmationIpc } = require('./autoConfirmationIpc.cjs');
 const { registerConfigIpc } = require('./configIpc.cjs');
 const { registerCredentialLibraryIpc } = require('./credentialLibraryIpc.cjs');
@@ -21,6 +22,7 @@ const { registerSystemFontIpc } = require('./systemFontIpc.cjs');
 const { registerPluginIpc } = require('./pluginIpc.cjs');
 const pluginService = require('../services/pluginService.cjs');
 const { createAgentService } = require('../services/agentService.cjs');
+const { createAiEvaluationStore } = require('../services/aiEvaluationStore.cjs');
 const { createTechnicalPlanExport } = require('../services/technicalPlanExport.cjs');
 const { createAiService } = require('../services/aiService.cjs');
 const { createAutoConfirmationService } = require('../services/autoConfirmationService.cjs');
@@ -122,6 +124,10 @@ function sendToWebContents(webContents, channel, payload) {
 }
 
 const workspaceDatabaseChannels = [
+  'ai-evaluation:load-state',
+  'ai-evaluation:save-state',
+  'ai-evaluation:save-documents',
+  'ai-evaluation:clear',
   'credential-library:load',
   'credential-library:import-test-data',
   'credential-library:save-profile',
@@ -289,6 +295,7 @@ function registerWorkspaceDatabaseServices({ app, configStore, aiService, agentS
   cleanupTrashDirSync(getWorkspaceTrashDir(app));
   clearOrphanedGeneratedImages(app, sqliteDatabase.db);
   const taskLogStore = createTaskLogStore({ db: sqliteDatabase.db });
+  const aiEvaluationStore = createAiEvaluationStore({ app, db: sqliteDatabase.db });
   const credentialLibraryService = createCredentialLibraryService({ app, db: sqliteDatabase.db });
   const knowledgeBaseStore = createKnowledgeBaseStore({ app, db: sqliteDatabase.db });
   const knowledgeBaseService = createKnowledgeBaseService({ app, aiService, configStore, knowledgeBaseStore });
@@ -316,6 +323,7 @@ function registerWorkspaceDatabaseServices({ app, configStore, aiService, agentS
   }
 
   clearWorkspaceDatabaseIpc();
+  registerAiEvaluationIpc({ aiEvaluationStore });
   registerCredentialLibraryIpc({ credentialLibraryService, configStore });
   registerKnowledgeBaseIpc({ knowledgeBaseService });
   registerTechnicalPlanIpc({ technicalPlanStore, taskService, agentService, openXmlHelperService });

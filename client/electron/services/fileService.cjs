@@ -669,7 +669,7 @@ const config = configStore ? configStore.load() : { components: { file_parser: {
 
   return {
     async importDocument(options = {}) {
-      return importTechnicalPlanDocument('招标文件', options);
+      return importTechnicalPlanDocument(options?.documentLabel || '招标文件', options);
     },
 
     persistTenderSourceDocx,

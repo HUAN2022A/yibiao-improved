@@ -43,6 +43,14 @@ function getWorkspaceDatabasePath(app) {
   return path.join(getWorkspaceDir(app), 'yibiao.sqlite');
 }
 
+function getAiEvaluationDir(app) {
+  return path.join(getWorkspaceDir(app), 'ai-evaluation');
+}
+
+function getAiEvaluationSourcesDir(app) {
+  return path.join(getAiEvaluationDir(app), 'sources');
+}
+
 function getTechnicalPlanDir(app) {
   return path.join(getWorkspaceDir(app), 'technical-plan');
 }
@@ -201,6 +209,8 @@ function getBundledOpenXmlHelperPath(app) {
 
 module.exports = {
   getAgentRuntimeDir,
+  getAiEvaluationDir,
+  getAiEvaluationSourcesDir,
   getAiLogsDir,
   getBundledAgentToolsBinDir,
   getBundledOpenXmlHelperDir,
