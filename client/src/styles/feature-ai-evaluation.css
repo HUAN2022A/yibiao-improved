@@ -1,0 +1,523 @@
+.ai-evaluation-page {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto auto minmax(0, 1fr);
+  gap: 14px;
+  height: 100%;
+  min-height: 0;
+  padding: 24px 28px 88px;
+  overflow: hidden;
+  background: #f6f8fb;
+}
+
+.ai-evaluation-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  padding: 0 2px;
+}
+
+.ai-evaluation-header > div:first-child {
+  min-width: 0;
+}
+
+.ai-evaluation-kicker,
+.ai-evaluation-panel-head span {
+  color: var(--yb-primary);
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.ai-evaluation-header h2 {
+  margin: 5px 0 4px;
+  color: var(--yb-text);
+  font-size: 26px;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+.ai-evaluation-header p {
+  margin: 0;
+  color: var(--yb-text-soft);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.ai-evaluation-stepper {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 10px;
+}
+
+.ai-evaluation-stepper > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--yb-text-muted);
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.ai-evaluation-stepper b {
+  display: grid;
+  width: 25px;
+  height: 25px;
+  place-items: center;
+  color: var(--yb-text-soft);
+  font-size: 12px;
+  background: #ffffff;
+  border: 1px solid var(--yb-border);
+  border-radius: 50%;
+}
+
+.ai-evaluation-stepper > span.is-active,
+.ai-evaluation-stepper > span.is-complete {
+  color: var(--yb-text);
+}
+
+.ai-evaluation-stepper > span.is-active b {
+  color: #ffffff;
+  background: var(--yb-primary);
+  border-color: var(--yb-primary);
+}
+
+.ai-evaluation-stepper > span.is-complete b {
+  color: var(--yb-success-deep);
+  background: var(--yb-success-soft);
+  border-color: var(--yb-success-border);
+}
+
+.ai-evaluation-stepper > i {
+  width: 34px;
+  height: 1px;
+  background: var(--yb-border);
+}
+
+.ai-evaluation-running {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) minmax(180px, 360px);
+  align-items: center;
+  gap: 22px;
+  padding: 12px 16px;
+  background: #ffffff;
+  border: 1px solid rgba(33, 116, 253, 0.18);
+  border-radius: 8px;
+  box-shadow: var(--yb-shadow-xs);
+}
+
+.ai-evaluation-running > div {
+  display: grid;
+  gap: 3px;
+}
+
+.ai-evaluation-running strong {
+  font-size: 13px;
+}
+
+.ai-evaluation-running span {
+  color: var(--yb-text-soft);
+  font-size: 12px;
+}
+
+.ai-evaluation-scroll {
+  min-height: 0;
+  overflow: auto;
+  scrollbar-gutter: stable;
+}
+
+.ai-evaluation-input-layout,
+.ai-evaluation-result-layout {
+  display: grid;
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  gap: 14px;
+}
+
+.ai-evaluation-input-layout {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.ai-evaluation-panel,
+.ai-evaluation-criterion,
+.ai-evaluation-summary-grid article {
+  background: #ffffff;
+  border: 1px solid var(--yb-border);
+  border-radius: 8px;
+  box-shadow: var(--yb-shadow-xs);
+}
+
+.ai-evaluation-panel {
+  padding: 20px;
+}
+
+.ai-evaluation-project-panel {
+  grid-column: 1 / -1;
+}
+
+.ai-evaluation-panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 15px;
+}
+
+.ai-evaluation-panel-head > div {
+  display: grid;
+  gap: 3px;
+}
+
+.ai-evaluation-panel-head h3 {
+  margin: 0;
+  color: var(--yb-text);
+  font-size: 17px;
+  line-height: 1.35;
+  letter-spacing: 0;
+}
+
+.ai-evaluation-panel-head em {
+  color: var(--yb-text-muted);
+  font-size: 12px;
+  font-style: normal;
+  white-space: nowrap;
+}
+
+.ai-evaluation-panel .secondary-action {
+  padding: 8px 14px;
+  font-size: 12px;
+}
+
+.ai-evaluation-field {
+  display: grid;
+  gap: 7px;
+}
+
+.ai-evaluation-field > span,
+.ai-evaluation-review label > span {
+  color: var(--yb-text-soft);
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.ai-evaluation-field small {
+  color: var(--yb-text-muted);
+  font-weight: 500;
+}
+
+.ai-evaluation-field input,
+.ai-evaluation-text-panel textarea,
+.ai-evaluation-review input {
+  width: 100%;
+  color: var(--yb-text);
+  background: #ffffff;
+  border: 1px solid var(--yb-border);
+  border-radius: 7px;
+  transition: border-color var(--yb-duration-fast) ease, box-shadow var(--yb-duration-fast) ease;
+}
+
+.ai-evaluation-field input,
+.ai-evaluation-review input {
+  height: 42px;
+  padding: 0 12px;
+}
+
+.ai-evaluation-text-panel textarea {
+  min-height: 320px;
+  padding: 13px 14px;
+  resize: vertical;
+  font: inherit;
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+.ai-evaluation-field input:focus,
+.ai-evaluation-text-panel textarea:focus,
+.ai-evaluation-review input:focus {
+  outline: none;
+  border-color: rgba(33, 116, 253, 0.56);
+  box-shadow: var(--yb-focus-ring);
+}
+
+.ai-evaluation-field input:disabled,
+.ai-evaluation-text-panel textarea:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.ai-evaluation-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.ai-evaluation-summary-grid article {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: end;
+  gap: 2px 7px;
+  padding: 17px 18px;
+  border-top: 3px solid var(--yb-primary);
+}
+
+.ai-evaluation-summary-grid article.is-reviewed {
+  border-top-color: var(--yb-success);
+}
+
+.ai-evaluation-summary-grid article.is-risk {
+  border-top-color: var(--yb-warning);
+}
+
+.ai-evaluation-summary-grid span {
+  grid-column: 1 / -1;
+  color: var(--yb-text-soft);
+  font-size: 12px;
+}
+
+.ai-evaluation-summary-grid strong {
+  color: var(--yb-text);
+  font-size: 28px;
+  line-height: 1;
+}
+
+.ai-evaluation-summary-grid small {
+  color: var(--yb-text-muted);
+  font-size: 12px;
+}
+
+.ai-evaluation-overview .markdown-viewer {
+  color: var(--yb-text-soft);
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+.ai-evaluation-overview .markdown-viewer > p:first-child,
+.ai-evaluation-criterion-body .markdown-viewer > p:first-child {
+  margin-top: 0;
+}
+
+.ai-evaluation-overview .markdown-viewer > p:last-child,
+.ai-evaluation-criterion-body .markdown-viewer > p:last-child {
+  margin-bottom: 0;
+}
+
+.ai-evaluation-high-risks {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px;
+  margin-top: 15px;
+  padding: 12px 14px;
+  color: var(--yb-danger-deep);
+  font-size: 13px;
+  background: var(--yb-danger-soft);
+  border: 1px solid var(--yb-danger-border);
+  border-radius: 7px;
+}
+
+.ai-evaluation-high-risks ul,
+.ai-evaluation-criterion-body ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.ai-evaluation-high-risks li + li,
+.ai-evaluation-criterion-body li + li {
+  margin-top: 5px;
+}
+
+.ai-evaluation-criteria {
+  display: grid;
+  gap: 12px;
+}
+
+.ai-evaluation-criterion {
+  padding: 20px;
+}
+
+.ai-evaluation-criterion-head {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 13px;
+}
+
+.ai-evaluation-index {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  color: var(--yb-primary);
+  font-size: 12px;
+  font-weight: 800;
+  background: rgba(33, 116, 253, 0.08);
+  border-radius: 7px;
+}
+
+.ai-evaluation-criterion-head > div:nth-child(2) {
+  min-width: 0;
+}
+
+.ai-evaluation-criterion-head small {
+  color: var(--yb-text-muted);
+  font-size: 11px;
+}
+
+.ai-evaluation-criterion-head h3 {
+  margin: 2px 0 0;
+  overflow: hidden;
+  color: var(--yb-text);
+  font-size: 16px;
+  line-height: 1.35;
+  letter-spacing: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ai-evaluation-confidence {
+  padding: 4px 8px;
+  color: var(--yb-warning-deep);
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--yb-warning-soft);
+  border-radius: 999px;
+}
+
+.ai-evaluation-confidence.is-high {
+  color: var(--yb-success-deep);
+  background: var(--yb-success-soft);
+}
+
+.ai-evaluation-confidence.is-low {
+  color: var(--yb-danger-deep);
+  background: var(--yb-danger-soft);
+}
+
+.ai-evaluation-score {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  min-width: 78px;
+  justify-content: flex-end;
+}
+
+.ai-evaluation-score strong {
+  color: var(--yb-text);
+  font-size: 24px;
+}
+
+.ai-evaluation-score span {
+  color: var(--yb-text-muted);
+  font-size: 12px;
+}
+
+.ai-evaluation-criterion > .yb-progress-track {
+  height: 5px;
+}
+
+.ai-evaluation-criterion-body {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.ai-evaluation-criterion-body section {
+  padding: 12px 13px;
+  color: var(--yb-text-soft);
+  font-size: 12.5px;
+  line-height: 1.65;
+  background: #f8fafc;
+  border: 1px solid var(--yb-border-soft);
+  border-radius: 7px;
+}
+
+.ai-evaluation-criterion-body section.is-risk {
+  color: var(--yb-danger-deep);
+  background: var(--yb-danger-soft);
+  border-color: var(--yb-danger-border);
+}
+
+.ai-evaluation-criterion-body section.is-suggestion {
+  color: var(--yb-success-deep);
+  background: var(--yb-success-soft);
+  border-color: var(--yb-success-border);
+}
+
+.ai-evaluation-criterion-body h4 {
+  margin: 0 0 7px;
+  color: currentColor;
+  font-size: 12px;
+}
+
+.ai-evaluation-review {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 12px;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--yb-border-soft);
+}
+
+.ai-evaluation-review label {
+  display: grid;
+  gap: 6px;
+}
+
+@media (max-width: 900px) {
+  .ai-evaluation-page {
+    padding: 20px 20px 88px;
+  }
+
+  .ai-evaluation-header {
+    align-items: flex-start;
+  }
+
+  .ai-evaluation-input-layout,
+  .ai-evaluation-criterion-body {
+    grid-template-columns: 1fr;
+  }
+
+  .ai-evaluation-text-panel textarea {
+    min-height: 230px;
+  }
+}
+
+@media (max-width: 680px) {
+  .ai-evaluation-header {
+    display: grid;
+  }
+
+  .ai-evaluation-header h2 {
+    font-size: 22px;
+  }
+
+  .ai-evaluation-stepper {
+    width: 100%;
+  }
+
+  .ai-evaluation-stepper > i {
+    flex: 1;
+  }
+
+  .ai-evaluation-running,
+  .ai-evaluation-summary-grid,
+  .ai-evaluation-review {
+    grid-template-columns: 1fr;
+  }
+
+  .ai-evaluation-criterion-head {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+  }
+
+  .ai-evaluation-confidence {
+    display: none;
+  }
+
+  .ai-evaluation-score {
+    grid-column: 2 / -1;
+    justify-content: flex-start;
+  }
+}

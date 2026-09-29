@@ -49,6 +49,7 @@ const pageLabels = {
   'rejection-check/results/rejection': '废标项检查 - 废标项结果',
   'rejection-check/results/typo': '废标项检查 - 错别字结果',
   'rejection-check/results/logic': '废标项检查 - 逻辑谬误结果',
+  'ai-evaluation': 'AI评标',
   'template-settings': '模版设置',
   'my-templates': '模版设置 - 我的模板',
   'my-templates/edit': '模版设置 - 编辑模板',

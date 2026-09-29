@@ -13,6 +13,7 @@ import DuplicateCheckPage from '../features/duplicate-check/pages/DuplicateCheck
 import CredentialLibraryPage from '../features/credential-library/pages/CredentialLibraryPage';
 import KnowledgeBasePage from '../features/knowledge-base/pages/KnowledgeBasePage';
 import RejectionCheckPage from '../features/rejection-check/pages/RejectionCheckPage';
+import AiEvaluationPage from '../features/ai-evaluation/pages/AiEvaluationPage';
 import ResourcesPage from '../features/resources/pages/ResourcesPage';
 import PluginsPage from '../features/plugins/pages/PluginsPage';
 import SettingsPage from '../features/settings/pages/SettingsPage';
@@ -58,6 +59,8 @@ function AppRouter({ activeSection, developerMode, onDeveloperModeChange, onSect
       return <DuplicateCheckPage />;
     case 'rejection-check':
       return <RejectionCheckPage />;
+    case 'ai-evaluation':
+      return <AiEvaluationPage />;
     case 'template-settings':
       return <MyTemplatesPage />;
     case 'bid-opportunity':
