@@ -174,7 +174,7 @@ jobs:
         run: npx electron-builder --win nsis zip --publish never -c.npmRebuild=false
 
       - name: Build Windows MSI artifact
-        run: npx electron-builder --win msi --publish never -c.npmRebuild=false -c.productName=OpenBidKit_Yibiao -c.extraMetadata.author=mark -c.copyright="Copyright (c) 2026 mark"
+        run: npx electron-builder --win msi --publish never -c.npmRebuild=false -c.productName=易标投标工具箱 -c.extraMetadata.author="HUAN2022A (derivative work; original project by mark / yibiaoai)" -c.copyright="Copyright (c) 2026 HUAN2022A; original copyrights retained"
 
       - name: Verify packaged Agent tools
         run: node scripts/verify-packaged-agent-tools.cjs --platform win32 --arch x64 --release release

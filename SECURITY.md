@@ -1,6 +1,6 @@
 # 安全策略
 
-感谢你关注易标 AI（OpenBidKit_Yibiao）的安全问题。
+感谢你关注易标 AI（基于 OpenBidKit_Yibiao 的派生版本）的安全问题。
 
 ## 支持版本
 
@@ -14,7 +14,9 @@
 
 ```text
 fb208@outlook.com
-````
+```
+
+该邮箱为上游安全联系邮箱；本仓库的问题与修复跟踪也可通过 [GitHub Issues](https://github.com/HUAN2022A/yibiao-improved/issues) 进行。
 
 反馈时建议说明：
 
@@ -36,4 +38,3 @@ fb208@outlook.com
 ## 免责声明
 
 本项目为开源软件，使用者应自行评估使用场景和安全风险。
-

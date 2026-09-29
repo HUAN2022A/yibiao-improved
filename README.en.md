@@ -10,6 +10,8 @@
 
 # Yibiao Bid Toolbox - AI Bid Proposal Writing Assistant
 
+> This repository is a derivative version of the upstream [OpenBidKit_Yibiao](https://github.com/FB208/OpenBidKit_Yibiao), maintained at [HUAN2022A/yibiao-improved](https://github.com/HUAN2022A/yibiao-improved). Upstream authorship, original copyright, third-party attributions, and license obligations remain in force; new and modified code in this branch is maintained by the current maintainer.
+
 <p align="center">
   <a href="./README.md">简体中文</a> | <strong>English</strong>
 </p>
@@ -151,7 +153,7 @@
 
 ### ⬇️ Download
 
-Download the latest release from [GitHub Releases](https://github.com/yibiaoai/yibiao-simple/releases), then run the installer or executable file.
+Download the latest release from [GitHub Releases](https://github.com/HUAN2022A/yibiao-improved/releases), then run the installer or executable file.
 
 ### 🎬 Usage Demo
 
@@ -163,7 +165,7 @@ Download the latest release from [GitHub Releases](https://github.com/yibiaoai/y
 
 ### Faster Access in Mainland China
 
-The primary users are from Chinese Mainland. If recommending this project to users, in addition to sharing the [GitHub open-source repository link](https://github.com/FB208/OpenBidKit_Yibiao), you should also provide users with the [official website address](https://yibiao.pro/) and [accelerated download link](https://atomgit.com/FB208/OpenBidKit_Yibiao/releases) that can be directly accessed from Chinese Mainland
+The primary users are from Chinese Mainland. Please share this maintained fork's [GitHub repository](https://github.com/HUAN2022A/yibiao-improved) when recommending it. Upstream attribution is preserved in [NOTICE](NOTICE).
 
 ## 🧑‍💻 Local Development
 
@@ -317,7 +319,7 @@ People who provide requirement analysis, technical support, test files, useful f
 
 Contributions are welcome.
 
-1. **🐛 Bug Reports**: Report bugs in [Issues](https://github.com/yibiaoai/yibiao-simple/issues).
+1. **🐛 Bug Reports**: Report bugs in [Issues](https://github.com/HUAN2022A/yibiao-improved/issues).
 2. **💡 Feature Requests**: Suggest new features and improvements.
 3. **🔧 Code Contributions**: Fork the repository and submit a pull request.
 4. **📖 Documentation**: Help improve documentation and usage guides.
@@ -339,7 +341,7 @@ You may use, modify, distribute, and commercialize this project, but modified ve
     <td width="50%" valign="top">
 
 - **Official Website**: [https://yibiao.pro](https://yibiao.pro)
-- **Feedback**: [GitHub Issues](https://github.com/yibiaoai/yibiao-simple/issues)
+- **Feedback**: [GitHub Issues](https://github.com/HUAN2022A/yibiao-improved/issues)
 - **Email**: support@yibiao.pro
 - **Telegram**: [https://t.me/OpenBidKit](https://t.me/OpenBidKit)
 - **X**: [https://x.com/markup668](https://x.com/markup668)
@@ -355,7 +357,7 @@ You may use, modify, distribute, and commercialize this project, but modified ve
 
 ## Star History
 
-<a href="https://www.star-history.com/?repos=FB208%2FOpenBidKit_Yibiao&type=timeline&legend=top-left">
+<a href="https://www.star-history.com/?repos=HUAN2022A%2Fyibiao-improved&type=timeline&legend=top-left">
  <picture>
    <source media="(prefers-color-scheme: dark)" srcset="assets/star-history/star-history-dark.svg" />
    <source media="(prefers-color-scheme: light)" srcset="assets/star-history/star-history-light.svg" />

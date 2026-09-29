@@ -10,6 +10,8 @@
 
 # 易标投标工具箱 - AI智能标书写作助手
 
+> 本仓库是基于上游 [OpenBidKit_Yibiao](https://github.com/FB208/OpenBidKit_Yibiao) 的派生版本，由 [HUAN2022A/yibiao-improved](https://github.com/HUAN2022A/yibiao-improved) 维护。上游作者、原始版权、第三方归属及许可证要求均继续有效；本分支新增和修改的代码由当前维护者负责。
+
 <p align="center">
   <strong>简体中文</strong> | <a href="./README.en.md">English</a>
 </p>
@@ -154,7 +156,7 @@
 
 ### ⬇️ 下载方式
 
-从 [GitHub Releases](https://github.com/yibiaoai/yibiao-simple/releases) 下载最新版本，运行安装包或可执行文件即可启动。
+从 [GitHub Releases](https://github.com/HUAN2022A/yibiao-improved/releases) 下载最新版本，运行安装包或可执行文件即可启动。
 
 ### 🎬 使用方式
 
@@ -166,7 +168,7 @@
 
 ### 中国大陆加速
 
-主要用户来自中国大陆，如果向用户推荐本项目，除了发送外[Github开源仓库链接](https://github.com/FB208/OpenBidKit_Yibiao)外。还应该给用户中国大陆可直连的[官网地址](https://yibiao.pro/)和[加速下载地址](https://atomgit.com/FB208/OpenBidKit_Yibiao/releases)
+主要用户来自中国大陆，如果向用户推荐本项目，请发送本仓库的 [GitHub 开源仓库链接](https://github.com/HUAN2022A/yibiao-improved)。上游项目归属请参阅 [NOTICE](NOTICE)。
 
 ## 🧑‍💻 本地开发调试
 
@@ -199,7 +201,7 @@ npm run dist:mac    # macOS Intel / Apple Silicon DMG 和 ZIP
 - **界面层**：Vite + React + TypeScript，使用全局 CSS 和 Radix UI
 - **数据与任务**：配置保存在本地文件，业务状态存入 SQLite；耗时任务在 Main 后台运行并支持恢复
 - **AI 与 Agent**：AI Service 统一管理模型请求，Pi Agent 使用独立 Runtime / Session 执行智能体任务
-- **文档与在线服务**：支持本地或 MinerU 解析、Open XML 和本地图片渲染；Cloudflare Worker 提供公告、资源、插件、模型信息、许可证及统计服务
+- **文档与在线服务**：支持本地或 MinerU 解析、Open XML 和本地图片渲染；Cloudflare Worker 仅保留必要的模型信息、许可证及统计服务
 
 ### 🏗️ 项目结构
 
@@ -318,7 +320,7 @@ npm run dist:mac    # macOS Intel / Apple Silicon DMG 和 ZIP
 
 欢迎各种形式的贡献！
 
-1. **🐛 问题反馈**: 在 [Issues](https://github.com/yibiaoai/yibiao-simple/issues) 中报告bug
+1. **🐛 问题反馈**: 在 [Issues](https://github.com/HUAN2022A/yibiao-improved/issues) 中报告 bug
 2. **💡 功能建议**: 提出新功能需求和改进建议  
 3. **🔧 代码贡献**: Fork项目，提交Pull Request
 4. **📖 文档完善**: 帮助改进文档和使用说明
@@ -340,7 +342,7 @@ npm run dist:mac    # macOS Intel / Apple Silicon DMG 和 ZIP
     <td width="50%" valign="top">
 
 - **官方网站**: [https://yibiao.pro](https://yibiao.pro)
-- **问题反馈**: [GitHub Issues](https://github.com/yibiaoai/yibiao-simple/issues)
+- **问题反馈**: [GitHub Issues](https://github.com/HUAN2022A/yibiao-improved/issues)
 - **邮箱联系**: support@yibiao.pro
 - **Telegram**: [https://t.me/OpenBidKit](https://t.me/OpenBidKit)
 - **X**: [https://x.com/markup668](https://x.com/markup668)
@@ -358,7 +360,7 @@ npm run dist:mac    # macOS Intel / Apple Silicon DMG 和 ZIP
 
 ## Star History
 
-<a href="https://www.star-history.com/?repos=FB208%2FOpenBidKit_Yibiao&type=timeline&legend=top-left">
+<a href="https://www.star-history.com/?repos=HUAN2022A%2Fyibiao-improved&type=timeline&legend=top-left">
  <picture>
    <source media="(prefers-color-scheme: dark)" srcset="assets/star-history/star-history-dark.svg" />
    <source media="(prefers-color-scheme: light)" srcset="assets/star-history/star-history-light.svg" />
